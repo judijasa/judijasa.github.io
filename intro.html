@@ -1,0 +1,170 @@
+<!DOCTYPE html> <!-- based on ring_2-->
+<html>
+    <head>
+       <meta charset="utf-8">
+           <style> canvas { background-color: rgb(190, 190, 190); }</style>
+       <title>Name of html</title>
+       <script>window.MathJax = { MathML: { extensions: ["mml3.js", "content-mathml.js"]}};</script>
+       <!-- 
+        <script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML"></script>
+        -->
+       <script type="text/x-mathjax-config">MathJax.Hub.Config({
+                                                               config: ["MMLorHTML.js"],
+                                                               jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+                                                               extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+                                                               TeX: {
+                                                               extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+                                                               }
+                                                               });</script>
+       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+
+    <body>
+       <h1>Diagrams</h1>
+       <p>1.- Two domains along x-lattice: |111000><sub>x</sub></p>
+       <div>
+         <canvas id="fig1"  width="600" height="100"></canvas>
+       </div>
+       <p>2.- Restore symmetry by introducing &lambda;-lattice: |111000><sub>x</sub> - |000111><sub>x</sub></p>
+       <div>
+           <canvas id="fig2"  width="600" height="100"></canvas>
+       </div>
+       <p>4.- Let H<sup>1</sup> = {|0><sub>x</sub>, |1><sub>x</sub>}; H<sup>2</sup> = {|00><sub>x</sub>, |01><sub>x</sub>, |10><sub>x</sub>, |11><sub>x</sub>}, and similarly for H<sup>n</sup>. Notice dim(H<sup>n</sup>) = 2<sup>n</sup>.</p>
+       
+       <!-- H&#772; -->
+       <p>5.- Let H<sup>&le;N</sup> = &oplus;<sub>n</sub> H<sup>n</sup>, where n = 1, 2, ..., N; and H = H<sup>&le;&infin;</sup>. By x-lattice we denote H, or any single other of its permutations.</p>
+       
+       <!-- ANCILLAS: <p> Let |0&lowast;><sub>x</sub> denote the subspace of states in H whose left most site is at state |0><sub>x</sub>.  Idem for |1&lowast;><sub>x</sub>, |&lowast;0><sub>x</sub> and |&lowast;1><sub>x</sub>.</p> -->
+       
+       <!-- <p>6.- Let s&#772; be the parity of the binary string s, e.g., s=001, s&#772;=110.
+       
+       <!-- <p> FUSION: Let equal states from nearest sites fuse, e.g., |1101>&equiv;|101>.   In particular, the 2nd diagram can be written as |10><sub>x</sub> + |01><sub>x</sub> = <sub>x</sub>&lt;10|1><sub>&lambda;</sub> = <sub>x</sub>&lt;01|1><sub>&lambda;</sub>.</p> -->
+
+<p>6.- <!-- Let {s<sub>m</sub>}<sub>m</sub> denote all strings of length <i>n</i>, and-->
+Let <i>B</i><sub>x</sub> = {|s<sub>m</sub>><sub>x</sub>}<sub>m</sub> and <i>B</i><sub>&lambda;</sub> = {|s<sub>m</sub>> <sub>&lambda;</sub>}<sub>m</sub>, where m = 0, 1, ..., (2<sup>n</sup> - 1), denote an orthonormal basis of H<sup>n</sup> and H&#772;<sup>n</sup>, respectively.  Let |s<sub><i>k</i></sub>><sub>x</sub> &isin; <i>B</i><sub>x</sub> and |s<sub>q</sub>> <sub>&lambda;</sub> &isin; <i>B</i><sub>&lambda;</sub>, be two arbitrary choices.  Define  <sub>x</sub>&lt;s<sub>m</sub>|s<sub>q</sub>> <sub>&lambda;</sub> = |s<sub>k</sub>><sub>x</sub> + &sum;<sub>j&ne;k</sub> (&minus;1)<sup>&lt;s<sub>j</sub>|s<sub>q</sub>></sup> |s<sub>j</sub>><sub>x</sub> and<br> <sub>x</sub>&lt;s<sub>m</sub>|s<sub><i>l</i></sub>> <sub>&lambda;</sub> = (&minus;1)<sup>&lt;s<sub>m</sub>|s<sub><i>l</i></sub>></sup> [ |s<sub>k</sub>><sub>x</sub> + &sum;<sub>j&ne;k</sub> (&minus;1)<sup>&lt;s<sub>j</sub>|s<sub><i>l</i></sub>></sup> |s<sub>j</sub>><sub>x</sub> ], for <i>l</i> &ne; <i>q</i>.  That is, the internal product becomes an external product when the braket mixes x-space with &lambda;-space.
+       </p>
+       
+       <p> Examples using binary labels.  For 1-bit:<br>
+       {<sub>x</sub>&lt;0|0> <sub>&lambda;</sub>, <sub>x</sub>&lt;0|1> <sub>&lambda;</sub>} = {|0><sub>x</sub> + |1><sub>x</sub>, |0><sub>x</sub> &minus; |1><sub>x</sub>}, <br> {<sub>x</sub>&lt;1|0> <sub>&lambda;</sub>, <sub>x</sub>&lt;1|1> <sub>&lambda;</sub>} = {|0><sub>x</sub> + |1><sub>x</sub>, <font color="red">&minus;</font> |0><sub>x</sub> <font color="red">+</font> |1><sub>x</sub>}.<br><br>
+    
+       For 2-bits:<br>
+           {<sub>x</sub>&lt;00|00> <sub>&lambda;</sub>, <sub>x</sub>&lt;00|01> <sub>&lambda;</sub>, <sub>x</sub>&lt;00|10> <sub>&lambda;</sub>, <sub>x</sub>&lt;00|11> <sub>&lambda;</sub>} = {|00><sub>x</sub> + |01><sub>x</sub> + |10><sub>x</sub> + |11><sub>x</sub>, |00><sub>x</sub> &minus; |01><sub>x</sub> + |10><sub>x</sub> + |11><sub>x</sub>, |00><sub>x</sub> + |01><sub>x</sub> &minus; |10><sub>x</sub> + |11><sub>x</sub>, |00><sub>x</sub> + |01><sub>x</sub> + |10><sub>x</sub> &minus; |11><sub>x</sub>},<br>
+           {<sub>x</sub>&lt;01|00> <sub>&lambda;</sub>, <sub>x</sub>&lt;01|01> <sub>&lambda;</sub>, <sub>x</sub>&lt;01|10> <sub>&lambda;</sub>, <sub>x</sub>&lt;01|11> <sub>&lambda;</sub>} = {|00><sub>x</sub> + |01><sub>x</sub> + |10><sub>x</sub> + |11><sub>x</sub>, <font color="red">&minus;</font> |00><sub>x</sub> <font color="red">+</font> |01><sub>x</sub> <font color="red">&minus;</font> |10><sub>x</sub> <font color="red">&minus;</font> |11><sub>x</sub>, |00><sub>x</sub> + |01><sub>x</sub> &minus; |10><sub>x</sub> + |11><sub>x</sub>, |00><sub>x</sub> + |01><sub>x</sub> + |10><sub>x</sub> &minus; |11><sub>x</sub>},<br>
+           {<sub>x</sub>&lt;10|00> <sub>&lambda;</sub>, <sub>x</sub>&lt;10|01> <sub>&lambda;</sub>, <sub>x</sub>&lt;10|10> <sub>&lambda;</sub>, <sub>x</sub>&lt;10|11> <sub>&lambda;</sub>} = {|00><sub>x</sub> + |01><sub>x</sub> + |10><sub>x</sub> + |11><sub>x</sub>, |00><sub>x</sub> &minus; |01><sub>x</sub> + |10><sub>x</sub> + |11><sub>x</sub>, <font color="red">&minus;</font> |00><sub>x</sub> <font color="red">&minus;</font> |01><sub>x</sub> <font color="red">+</font> |10><sub>x</sub> <font color="red">&minus;</font> |11><sub>x</sub>, |00><sub>x</sub> + |01><sub>x</sub> + |10><sub>x</sub> &minus; |11><sub>x</sub>},<br>
+           {<sub>x</sub>&lt;11|00> <sub>&lambda;</sub>, <sub>x</sub>&lt;11|01> <sub>&lambda;</sub>, <sub>x</sub>&lt;11|10> <sub>&lambda;</sub>, <sub>x</sub>&lt;11|11> <sub>&lambda;</sub>} = {|00><sub>x</sub> + |01><sub>x</sub> + |10><sub>x</sub> + |11><sub>x</sub>, |00><sub>x</sub> &minus; |01><sub>x</sub> + |10><sub>x</sub> + |11><sub>x</sub>, |00><sub>x</sub> + |01><sub>x</sub> &minus; |10><sub>x</sub> + |11><sub>x</sub>, <font color="red">&minus;</font> |00><sub>x</sub> <font color="red">&minus;</font> |01><sub>x</sub> <font color="red">&minus;</font> |10><sub>x</sub> <font color="red">+</font> |11><sub>x</sub>}.<br><br>
+           
+           For 2-bits: (alternative version consistent with permutation as map between two basis)<br>
+           {<sub>x</sub>&lt;00|00> <sub>&lambda;</sub>, <sub>x</sub>&lt;00|01> <sub>&lambda;</sub>, <sub>x</sub>&lt;00|10> <sub>&lambda;</sub>, <sub>x</sub>&lt;00|11> <sub>&lambda;</sub>} = {|00><sub>x</sub> + |01><sub>x</sub> + |10><sub>x</sub> + |11><sub>x</sub>, |00><sub>x</sub> &minus; |01><sub>x</sub> + |10><sub>x</sub> + |11><sub>x</sub>, |00><sub>x</sub> + |01><sub>x</sub> &minus; |10><sub>x</sub> + |11><sub>x</sub>, |00><sub>x</sub> + |01><sub>x</sub> + |10><sub>x</sub> &minus; |11><sub>x</sub>},<br>
+           {<sub>x</sub>&lt;01|00> <sub>&lambda;</sub>, <sub>x</sub>&lt;01|01> <sub>&lambda;</sub>, <sub>x</sub>&lt;01|10> <sub>&lambda;</sub>, <sub>x</sub>&lt;01|11> <sub>&lambda;</sub>} = {|00><sub>x</sub> + |01><sub>x</sub> + |10><sub>x</sub> + |11><sub>x</sub>, <font color="red">&minus;</font> |00><sub>x</sub> <font color="red">+</font> |01><sub>x</sub> + |10><sub>x</sub> + |11><sub>x</sub>, |00><sub>x</sub> + |01><sub>x</sub> &minus; |10><sub>x</sub> + |11><sub>x</sub>, |00><sub>x</sub> + |01><sub>x</sub> + |10><sub>x</sub> &minus; |11><sub>x</sub>},<br>
+           {<sub>x</sub>&lt;10|00> <sub>&lambda;</sub>, <sub>x</sub>&lt;10|01> <sub>&lambda;</sub>, <sub>x</sub>&lt;10|10> <sub>&lambda;</sub>, <sub>x</sub>&lt;10|11> <sub>&lambda;</sub>} = {|00><sub>x</sub> + |01><sub>x</sub> + |10><sub>x</sub> + |11><sub>x</sub>, |00><sub>x</sub> &minus; |01><sub>x</sub> + |10><sub>x</sub> + |11><sub>x</sub>, <font color="red">&minus;</font> |00><sub>x</sub> + |01><sub>x</sub> <font color="red">+</font> |10><sub>x</sub> + |11><sub>x</sub>, |00><sub>x</sub> + |01><sub>x</sub> + |10><sub>x</sub> &minus; |11><sub>x</sub>},<br>
+           {<sub>x</sub>&lt;11|00> <sub>&lambda;</sub>, <sub>x</sub>&lt;11|01> <sub>&lambda;</sub>, <sub>x</sub>&lt;11|10> <sub>&lambda;</sub>, <sub>x</sub>&lt;11|11> <sub>&lambda;</sub>} = {|00><sub>x</sub> + |01><sub>x</sub> + |10><sub>x</sub> + |11><sub>x</sub>, |00><sub>x</sub> &minus; |01><sub>x</sub> + |10><sub>x</sub> + |11><sub>x</sub>, |00><sub>x</sub> + |01><sub>x</sub> &minus; |10><sub>x</sub> + |11><sub>x</sub>, <font color="red">&minus;</font> |00><sub>x</sub> + |01><sub>x</sub> + |10><sub>x</sub> <font color="red">+</font> |11><sub>x</sub>}.<br><br>
+           
+           We say H&#772; is the analogous of H for &lambda;-space, e.g., H&#772;<sup>1</sup> = {|0> <sub>&lambda;</sub>, |1> <sub>&lambda;</sub>}.
+           The recipe to build H&#772;<sup>n</sup> from H<sup>n</sup> is the following: create a basis whose elements are balanced populations of H<sup>n</sup>.  This will be the referential basis.  Such basis is pinned (not always but in our construction it is) by the choice of a classic state in H<sup>n</sup> whose sign prefactor is preserved in every element of the referential basis (choice of |s<sub>k</sub>><sub>x</sub>).  Now choose one element in the referential basis (choice of |s<sub>q</sub>> <sub>&lambda;</sub>); with the exception of the latter element, create the remaining basis by introducing an overall sign to one arbitrary element of the referential basis.  In the example of 2-bits, we have chosen |00><sub>x</sub> as |s<sub>k</sub>><sub>x</sub> and |00> <sub>&lambda;</sub> as |s<sub>q</sub>> <sub>&lambda;</sub>.  Indeed, from now on our default shall be <i>k</i> = <i>q</i> = 0.</p>
+           
+           <p>7.- The symmetry group, sym(.), is the group of all permutations of a set.  A transposition is a permutation which exchanges two elements and keeps all others fixed.  Every permutation can be written as a product of transpositions (wikipedia: symmetry group).  Let sym(H<sup>&le;N</sup>) = &oplus;<sub>n</sub> sym(H<sup>n</sup>).</p>
+           
+           <p> 8.- There is an homomorphism between H;&#772; and sym(H).  Identify the relation that is being preserved and provide the map.</p>
+           
+           <p>9.- Let P<sub>i, j</sub> = P<sub>j, i</sub>, where i, j = 1, 2, ..., n; be the transposition between the <i>i</i>th and <i>j</i>th elements of H<sup>n</sup>.  Notice P<sub>1, 2</sub> generates sym(H<sup>1</sup>) with an irreducible representation in H&#772;<sup>1</sup>, i.e.,<br>
+           
+           <!-- <math xmlns="http://www.w3.org/1998/Math/MathML"> -->
+           <!-- not for chrome, therefore call mathjax in head -->
+          
+        <math display="block">
+          <mrow>
+            <msub>
+                   <mi mathvariant="normal">&pi;&#772;</mi><mn>1</mn>
+                   </msub>
+            <msub>
+                <mi mathvariant="normal">(P</mi><mn>1, 2</mn>
+            </msub>
+            <mi mathvariant="normal">)</mi>
+                   <mo>=</mo>
+                <mo> ( </mo>
+               <mtable>
+                   <mtr> <mn>1</mn> <mn>0</mn> </mtr>
+                   <mtr> <mn>0</mn> <mn>&minus;1</mn> </mtr>
+               </mtable>
+               <mo> ) </mo>
+           </mrow>
+           </math>
+        Similarly, {P<sub>1, k</sub>}, where k = 2, 3, ..., n; are generators (really? What wiki say is that adjacent permutations are generators but these is a different set) of sym(H<sup>n</sup>) and [&pi;&#772;<sub>n</sub>(P<sub>1, k</sub>)]<sub>i, j</sub> = &delta;<sub>i, j</sub> (&minus;1)<sup>&delta;<sub>i, k</sub></sup>.
+           </p>
+           
+           <p>9.- Theorem 1: H&#772; is  to sym(H).
+       
+       <p>10.- Now you explain why the symmetry introduced in the 2nd diagram is necessary: to establish a duality between x-space and &lambda;-space.<br>This can be formulated in terms of a new internal product from which we can construct the isomorphism between the two spaces.<br><br>
+       Consider all vector spaces generated by the action of the symmetry group on H<sup>n</sup> Sym().</p>
+
+       <script>
+         var canvas = document.getElementById('fig1');
+         var ctx = canvas.getContext('2d');
+         var site = {
+             x: canvas.width / 12,
+             y: canvas.height / 2
+         };
+         var radious = canvas.height / 2;
+         var angle = 2*Math.PI;
+         
+         disk(1,'rgb(1,1,1)');
+         disk(3,'rgb(1,1,1)');
+         disk(5,'rgb(1,1,1)');
+         disk(7,'rgb(255,255,255)');
+         disk(9,'rgb(255,255,255)');
+         disk(11,'rgb(255,255,255)');
+
+function disk(pos,color) {
+ctx.beginPath();
+ctx.fillStyle = color; // = 'rgb(1,1,1)';
+ctx.arc(site.x*pos, site.y, radious, 0, angle, true); //outer counter-clockwise
+ctx.arc(site.x*pos, site.y, 0, 0, 0, true);
+ctx.fill();
+ctx.closePath();
+}
+
+       </script>
+       <script>
+           var canvas = document.getElementById('fig2');
+           var ctx = canvas.getContext('2d');
+           var site = {
+               x: canvas.width / 12,
+               y: canvas.height / 2
+           };
+       var radious = canvas.height / 2;
+       var angle = 2*Math.PI;
+       
+       disk2(1,'rgb(1,1,1)','rgb(255,255,255)');
+       disk2(3,'rgb(1,1,1)','rgb(255,255,255)');
+       disk2(5,'rgb(1,1,1)','rgb(255,255,255)');
+       disk2(7,'rgb(255,255,255)','rgb(1,1,1)');
+       disk2(9,'rgb(255,255,255)','rgb(1,1,1)');
+       disk2(11,'rgb(255,255,255)','rgb(1,1,1)');
+       
+       function disk2(pos,color1,color2) {
+           
+           //outer ring
+           ctx.beginPath();
+           ctx.fillStyle = color1; // = 'rgb(1,1,1)';
+           ctx.arc(site.x*pos, site.y, radious, 0, angle, true); //outer counter-clockwise
+           ctx.arc(site.x*pos, site.y, 0, 0, 0, true);
+           ctx.fill();
+           ctx.closePath();
+       
+       //inner ring
+       ctx.beginPath();
+       ctx.fillStyle = color2;
+       ctx.arc(site.x*pos, site.y, radious/2, 0, angle, true);
+       ctx.arc(site.x*pos, site.y, 0, 0, 0, true);
+       ctx.fill();
+       ctx.closePath();
+       
+       }
+       
+           </script>
+    </body>
+    <script type="text/javascript">
+        MathJax.Hub.Configured()
+        </script>
+</html>
+
