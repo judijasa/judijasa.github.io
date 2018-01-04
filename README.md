@@ -9,4 +9,5 @@
 # https://sites.google.com/site/adolfodelcampo/
 
 # To do
-# 1.- Highlight specific results, e.g., canonical partition function, JE variance of freq. driven QHO at low-T, etc.
+# 1.- Highlight specific results, e.g., canonical partition function of Calogero-Sutherland model,
+#     variance of Jarzynski equality in freq. driven QHO at low-T, etc.
